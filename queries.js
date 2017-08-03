@@ -1,7 +1,7 @@
 const knex = require('./db/knex')
 
 module.exports = {
-  example: function(){
-    return knex('*').from('tableName')
+  getProjects: function(){
+    return knex('*').from('project')
   }
 }

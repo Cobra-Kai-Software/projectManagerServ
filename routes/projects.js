@@ -6,7 +6,10 @@ const bcrypt = ('bcrypt')
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  queries.getProjects()
+  .then((projects) => {
+    res.json(projects)
+  })
 });
 
 module.exports = router;
