@@ -1,7 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const queries = require('../queries')
-/* GET users listing. */
+const jwt = require('jsonwebtoken')
+
 router.get('/', function(req, res, next) {
   res.send('respond with a resource');
 });
