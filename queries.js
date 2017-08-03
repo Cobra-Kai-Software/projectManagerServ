@@ -1,4 +1,4 @@
-var knex = require('./db/knex')
+const knex = require('./db/knex')
 
 module.exports = {
   example: function(){

@@ -1,19 +1,23 @@
-var express = require('express');
-var path = require('path');
-var favicon = require('serve-favicon');
-var logger = require('morgan');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
+const express = require('express');
+const path = require('path');
+const favicon = require('serve-favicon');
+const logger = require('morgan');
 
-var index = require('./routes/index');
-var users = require('./routes/users');
+const cors = require('cors')
 
-var app = express();
+const bodyParser = require('body-parser');
+
+const index = require('./routes/index');
+const users = require('./routes/users');
+
+const app = express();
+
+const port = process.env.PORT || 8080;
 
 // view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'hbs');
 
+
+app.use(cors())
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
@@ -42,5 +46,7 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+app.listen(port)
 
 module.exports = app;
