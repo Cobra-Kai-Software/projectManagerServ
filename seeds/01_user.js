@@ -13,12 +13,12 @@ var members = [{
   email: "jimbob@tuxedotshirt.party",
   password: "4321",
   name: "jimbob"
-}, {
+  }, {
   id: 3,
   email: "bigc@tuxedotshirt.party",
   password: "12345",
   name: "cleatus"
-},{
+  },{
   id: 4,
   email: "clem@tuxedotshirt.party",
   password: "1357",

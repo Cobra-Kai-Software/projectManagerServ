@@ -26,5 +26,20 @@ router.post('/:id', function(req, res, next) {
   })
 });
 
+// router.put("/:id", (req, res, next) => {
+//   queries.editMessage(req.params.id, req.body[0].message_body)
+//     .then(function(message) {
+//       res.json(message);
+//     });
+// });
+//
+
+
+router.delete("/:id", (req, res, next) => {
+  queries.deleteProject(req.params.id)
+    .then(function(project) {
+      res.json(project);
+    });
+});
 
 module.exports = router;
