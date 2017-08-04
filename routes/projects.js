@@ -9,7 +9,14 @@ router.get('/', function(req, res, next) {
   queries.getProjects()
   .then((projects) => {
     res.json(projects)
-  })
+  });
+});
+
+router.get('/:id', function(req, res, next) {
+  queries.getTasksByProject(req.params.id)
+  .then((tasks) => {
+    res.json(tasks)
+  });
 });
 
 module.exports = router;
