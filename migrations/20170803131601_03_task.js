@@ -2,7 +2,7 @@
 exports.up = (knex, Promise) => {
   return knex.schema.createTable('task' ,(table) => {
     table.increments();
-    table.text('name').notNullable().unique();
+    table.text('name').notNullable();
     table.text('description');
     table.boolean('todo').defaultTo(true);
     table.boolean('inprogress').defaultTo(false);

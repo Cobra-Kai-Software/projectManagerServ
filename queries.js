@@ -11,7 +11,7 @@ module.exports = {
     .innerJoin('member', 'member.id', 'task.member_id')
     .where('project.id', project_id)
   },
-  addTaskToProject: function(body) {
+  addTask: function(body) {
     return knex('task').insert(body).returning('*')
   },
   getTasksByMember: function() {

@@ -19,6 +19,12 @@ router.get('/:id', function(req, res, next) {
   });
 });
 
+router.post('/:id', function(req, res, next) {
+  queries.addTask(req.body.id)
+  .then((newTask) => {
+    res.json(newTask)
+  })
+});
 
 
 module.exports = router;
