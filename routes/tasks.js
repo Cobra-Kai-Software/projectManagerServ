@@ -6,7 +6,7 @@ const bcrypt = require('bcrypt')
 
 router.get("/", function(req, res, next) {
   queries.getTasks()
-  .then((tasks) => {
+  .then(function(tasks) {
     res.json(tasks)
   });
 });
@@ -18,11 +18,18 @@ router.get('/:id', function(req,res,next){
   });
 });
 
-router.delete("/:id", (req, res, next) => {
+router.delete("/:id", function(req, res, next) {
   queries.deleteTask(req.params.id)
     .then(function(task) {
       res.json(task);
     });
+});
+
+router.put('/:id', function(req,res,next){
+  queries.editTask(req.params.id, req.body)
+  .then(function(task){
+    res.json(task[0]);
+  });
 });
 
 module.exports = router;

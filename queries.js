@@ -35,5 +35,8 @@ module.exports = {
     return knex('task').select('task.id', 'project.name as project_name', 'task.name as task_name', 'task.description', 'task.todo', 'task.inprogress', 'task.icebox', 'task.finished')
     .innerJoin('project', 'project.id', 'task.project_id')
     .where('task.id', task_id)
+  },
+  editTask: function(task_id, edit){
+    return knex('task').where('id', task_id).update(edit).returning('*')
   }
 };
