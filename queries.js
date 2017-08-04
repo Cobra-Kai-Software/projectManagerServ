@@ -19,6 +19,9 @@ module.exports = {
   deleteProject: function(project_id){
     return knex('project').where('id', project_id).del()
   },
+  addProject: function(body){
+    return knex('project').insert(body).returning('*')
+  },
   getTasksByMember: function() {
 
   },

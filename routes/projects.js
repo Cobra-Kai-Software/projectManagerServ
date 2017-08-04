@@ -26,13 +26,12 @@ router.post('/:id', function(req, res, next) {
   })
 });
 
-// router.put("/:id", (req, res, next) => {
-//   queries.editMessage(req.params.id, req.body[0].message_body)
-//     .then(function(message) {
-//       res.json(message);
-//     });
-// });
-//
+router.post('/', function(req, res, next) {
+  queries.addProject(req.body)
+  .then((newProject) => {
+    res.json(newProject)
+  })
+});
 
 
 router.delete("/:id", (req, res, next) => {
