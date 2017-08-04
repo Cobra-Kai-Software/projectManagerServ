@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const queries = require('../queries')
 const jwt = require('jsonwebtoken')
-const bcrypt = ('bcrypt')
+const bcrypt = require('bcrypt')
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
