@@ -17,7 +17,7 @@ router.post('/', function(req, res, next) {
         let match = bcrypt.compareSync(req.body.password, member[0].password);
         if (match) {
           delete member[0].password
-          var token = jwt.sign(member[0], 'secretword');
+          var token = jwt.sign(member[0], process.env.TOKEN_SECRET);
           res.json({
             data: token
           })

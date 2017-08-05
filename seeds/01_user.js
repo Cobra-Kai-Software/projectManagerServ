@@ -1,13 +1,12 @@
 require('dotenv').config();
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
-const secretWord = 'Secret_Word'
 
 exports.seed = function(knex, Promise) {
   return knex.raw('DELETE FROM "member"; ALTER SEQUENCE member_id_seq RESTART WITH 5;')
 
     .then(() => {
-      var hash = bcrypt.hashSync(secretWord, saltRounds)
+      var hash = bcrypt.hashSync(process.env.SECRET_WORD, saltRounds)
 
       var members = [{
         id: 1,
