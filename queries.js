@@ -47,5 +47,8 @@ module.exports = {
   },
   memberSignup: function(body) {
     return knex('member').insert(body).returning('*')
+  },
+  memberScreen: function(body){
+    return knex('member').select().where('member.email', body.email)
   }
 };
