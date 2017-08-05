@@ -6,20 +6,20 @@ module.exports = {
   },
   getTasksByProject: function(project_id) {
     return knex('task')
-    .select('task.id', 'project.name as project_name', 'task.name as task_name', 'task.description', 'task.todo', 'task.inprogress', 'task.icebox', 'task.finished')
-    .innerJoin('project', 'project.id', 'task.project_id')
-    .where('project.id', project_id)
+      .select('task.id', 'project.name as project_name', 'task.name as task_name', 'task.description', 'task.todo', 'task.inprogress', 'task.icebox', 'task.finished')
+      .innerJoin('project', 'project.id', 'task.project_id')
+      .where('project.id', project_id)
   },
   addTask: function(body) {
     return knex('task').insert(body).returning('*')
   },
-  deleteTask: function(task_id){
+  deleteTask: function(task_id) {
     return knex('task').where('id', task_id).del()
   },
-  deleteProject: function(project_id){
+  deleteProject: function(project_id) {
     return knex('project').where('id', project_id).del()
   },
-  addProject: function(body){
+  addProject: function(body) {
     return knex('project').insert(body).returning('*')
   },
   getTasksByMember: function() {
@@ -34,12 +34,12 @@ module.exports = {
   getTasks: function() {
     return knex("*").from("task")
   },
-  getTaskById: function(task_id){
+  getTaskById: function(task_id) {
     return knex('task').select('task.id', 'project.name as project_name', 'task.name as task_name', 'task.description', 'task.todo', 'task.inprogress', 'task.icebox', 'task.finished')
-    .innerJoin('project', 'project.id', 'task.project_id')
-    .where('task.id', task_id)
+      .innerJoin('project', 'project.id', 'task.project_id')
+      .where('task.id', task_id)
   },
-  editTask: function(task_id, edit){
+  editTask: function(task_id, edit) {
     return knex('task').where('id', task_id).update(edit).returning('*')
   },
   memberLogin: function(body) {
@@ -48,7 +48,7 @@ module.exports = {
   memberSignup: function(body) {
     return knex('member').insert(body).returning('*')
   },
-  memberScreen: function(body){
+  memberScreen: function(body) {
     return knex('member').select().where('member.email', body.email)
   }
 };

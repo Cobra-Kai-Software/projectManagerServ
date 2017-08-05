@@ -7,32 +7,31 @@ require('dotenv').config();
 /* GET home page. */
 router.get('/', function(req, res, next) {
   queries.getProjects()
-  .then((projects) => {
-    res.json(projects)
-  });
+    .then((projects) => {
+      res.json(projects)
+    });
 });
 
 router.get('/:id', function(req, res, next) {
   queries.getTasksByProject(req.params.id)
-  .then((tasks) => {
-    res.json(tasks)
-  });
+    .then((tasks) => {
+      res.json(tasks)
+    });
 });
 
 router.post('/:id', function(req, res, next) {
   queries.addTask(req.body)
-  .then((newTask) => {
-    res.json(newTask[0])
-  })
+    .then((newTask) => {
+      res.json(newTask[0])
+    })
 });
 
 router.post('/', function(req, res, next) {
   queries.addProject(req.body)
-  .then((newProject) => {
-    res.json(newProject[0])
-  })
+    .then((newProject) => {
+      res.json(newProject[0])
+    })
 });
-
 
 router.delete("/:id", (req, res, next) => {
   queries.deleteProject(req.params.id)

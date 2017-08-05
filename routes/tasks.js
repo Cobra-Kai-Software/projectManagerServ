@@ -6,16 +6,16 @@ const bcrypt = require('bcrypt')
 
 router.get("/", function(req, res, next) {
   queries.getTasks()
-  .then(function(tasks) {
-    res.json(tasks)
-  });
+    .then(function(tasks) {
+      res.json(tasks)
+    });
 });
 
-router.get('/:id', function(req,res,next){
+router.get('/:id', function(req, res, next) {
   queries.getTaskById(req.params.id)
-  .then(function(task){
-    res.json(task)
-  });
+    .then(function(task) {
+      res.json(task)
+    });
 });
 
 router.delete("/:id", function(req, res, next) {
@@ -25,11 +25,11 @@ router.delete("/:id", function(req, res, next) {
     });
 });
 
-router.put('/:id', function(req,res,next){
+router.put('/:id', function(req, res, next) {
   queries.editTask(req.params.id, req.body)
-  .then(function(task){
-    res.json(task[0]);
-  });
+    .then(function(task) {
+      res.json(task[0]);
+    });
 });
 
 module.exports = router;
