@@ -3,6 +3,7 @@ const router = express.Router();
 const queries = require('../queries');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
+
 require('dotenv').config();
 
 router.post('/', function(req, res, next) {
@@ -16,7 +17,7 @@ router.post('/', function(req, res, next) {
         let match = bcrypt.compareSync(req.body.password, member[0].password);
         if (match) {
           delete member[0].password
-          var token = jwt.sign(member[0], secret);
+          var token = jwt.sign(member[0], 'secretword');
           res.json({
             data: token
           })
