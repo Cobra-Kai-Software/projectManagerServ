@@ -6,7 +6,7 @@ const bcrypt = require('bcrypt');
 require('dotenv').config();
 
 
-router.post('/', function(req, res, next){
+router.post('/', function(req, res, next) {
   queries.memberLogin(req.body)
   .then((member) => {
     if (member.length === 0) {
@@ -18,5 +18,14 @@ router.post('/', function(req, res, next){
     }
   })
 });
+
+router.post('/signup', function(req, res, next) {
+  queries.memberSignup(req.body)
+  .then((newMember) => {
+    res.json(newMember[0])
+  });
+})
+
+
 
 module.exports = router;

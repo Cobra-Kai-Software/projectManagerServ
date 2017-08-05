@@ -44,5 +44,8 @@ module.exports = {
   },
   memberLogin: function(body) {
     return knex('member').where('member.email', body.email)
+  },
+  memberSignup: function(body) {
+    return knex('member').insert(body).returning('*')
   }
 };
