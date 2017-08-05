@@ -41,5 +41,8 @@ module.exports = {
   },
   editTask: function(task_id, edit){
     return knex('task').where('id', task_id).update(edit).returning('*')
+  },
+  memberLogin: function(body) {
+    return knex('member').where('member.email', body.email)
   }
 };
