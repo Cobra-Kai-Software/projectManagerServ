@@ -50,6 +50,9 @@ module.exports = {
   },
   memberScreen: function(body) {
     return knex('member').select().where('member.email', body.email)
+  },
+  hotDog: function(password){
+    var validate = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/;
+    return validate.test(password)
   }
-  
 };
