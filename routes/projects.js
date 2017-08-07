@@ -3,7 +3,9 @@ const router = express.Router();
 const queries = require('../queries')
 const jwt = require('jsonwebtoken')
 const bcrypt = require('bcrypt')
+
 require('dotenv').config();
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
   queries.getProjects()
