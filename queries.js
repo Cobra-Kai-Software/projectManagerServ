@@ -14,10 +14,10 @@ module.exports = {
     return knex('task').insert(body).returning('*')
   },
   deleteTask: function(task_id) {
-    return knex('task').where('id', task_id).del()
+    return knex('task').where('id', task_id).del().returning('*')
   },
   deleteProject: function(project_id) {
-    return knex('project').where('id', project_id).del()
+    return knex('project').where('id', project_id).del().returning('*')
   },
   addProject: function(body) {
     return knex('project').insert(body).returning('*')

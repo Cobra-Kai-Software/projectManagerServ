@@ -38,7 +38,7 @@ router.post('/', function(req, res, next) {
 router.delete("/:id", (req, res, next) => {
   queries.deleteProject(req.params.id)
     .then(function(project) {
-      res.json(project[0]);
+      res.json(project);
     });
 });
 
