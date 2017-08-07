@@ -31,8 +31,7 @@ router.post('/', function(req, res, next) {
 });
 
 router.post('/signup', function(req, res, next) {
-  if (queries.hotDog(req.body.password)){
-  } else {
+  if (queries.hotDog(req.body.password)) {} else {
     return res.json({
       error: 'Invalid password'
     })
@@ -53,7 +52,6 @@ router.post('/signup', function(req, res, next) {
         });
       }
     })
-
 })
 
 
