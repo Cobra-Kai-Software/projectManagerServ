@@ -1,3 +1,6 @@
 DATABASE_URL = "heroku database url"
 TOKEN_SECRET = "jwt token"
 SECRET_WORD = "db password default"
+SECRET_WORD2 = "db password default"
+SECRET_WORD3 = "db password default"
+SECRET_WORD4 = "db password default"
