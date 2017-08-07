@@ -51,4 +51,5 @@ module.exports = {
   memberScreen: function(body) {
     return knex('member').select().where('member.email', body.email)
   }
+  
 };
