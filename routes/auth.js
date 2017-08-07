@@ -45,7 +45,10 @@ router.post('/signup', function(req, res, next) {
         req.body.password = hash;
         queries.memberSignup(req.body)
           .then((newMember) => {
-            res.json(newMember[0])
+            var token = jwt.sign(newMember[0], process.env.TOKEN_SECRET);
+            res.json({
+              data: token
+            })
           });
       } else {
         res.json({
