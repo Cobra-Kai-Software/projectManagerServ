@@ -31,6 +31,12 @@ router.post('/', function(req, res, next) {
 });
 
 router.post('/signup', function(req, res, next) {
+  if (hotDog(req.body.password)){
+  } else {
+    return res.json({
+      error: 'Invalid password'
+    })
+  }
   queries.memberScreen(req.body)
     .then((member) => {
       if (member.length === 0) {
@@ -50,6 +56,10 @@ router.post('/signup', function(req, res, next) {
 
 })
 
+function hotDog(password){
+  var validate = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/;
+  return validate.test(password)
+}
 
 
 module.exports = router;
