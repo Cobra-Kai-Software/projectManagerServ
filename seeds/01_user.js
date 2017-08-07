@@ -7,6 +7,9 @@ exports.seed = function(knex, Promise) {
 
     .then(() => {
       var hash = bcrypt.hashSync(process.env.SECRET_WORD, saltRounds)
+      var hash2 = bcrypt.hashSync(process.env.SECRET_WORD2, saltRounds)
+      var hash3 = bcrypt.hashSync(process.env.SECRET_WORD3, saltRounds)
+      var hash4 = bcrypt.hashSync(process.env.SECRET_WORD4, saltRounds)
 
       var members = [{
         id: 1,
@@ -16,17 +19,17 @@ exports.seed = function(knex, Promise) {
       }, {
         id: 2,
         email: "jimbob@tuxedotshirt.party",
-        password: hash,
+        password: hash2,
         name: "jimbob"
       }, {
         id: 3,
         email: "bigc@tuxedotshirt.party",
-        password: hash,
+        password: hash3,
         name: "cleatus"
       }, {
         id: 4,
         email: "clem@tuxedotshirt.party",
-        password: hash,
+        password: hash4,
         name: "clem"
       }];
 
