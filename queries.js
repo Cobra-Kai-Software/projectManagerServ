@@ -6,7 +6,7 @@ module.exports = {
   },
   getTasksByProject: function(project_id) {
     return knex('task')
-      .select('task.id', 'project.name as project_name', 'task.name as task_name', 'task.description', 'task.todo', 'task.inprogress', 'task.icebox', 'task.finished', 'project.id as project_id', 'member.id as member_id')
+      .select('task.id', 'project.name as project_name', 'task.name as task_name', 'task.description', 'task.todo', 'task.inprogress', 'task.icebox', 'task.finished', 'project.id as project_id', 'member.id as member_id', 'member.name as member_name')
       .innerJoin('project', 'project.id', 'task.project_id')
       .innerJoin('member', 'member.id', 'task.member_id')
       .where('project.id', project_id)
@@ -36,8 +36,9 @@ module.exports = {
     return knex("*").from("task")
   },
   getTaskById: function(task_id) {
-    return knex('task').select('task.id', 'project.name as project_name', 'task.name as task_name', 'task.description', 'task.todo', 'task.inprogress', 'task.icebox', 'task.finished')
+    return knex('task').select('task.id', 'project.name as project_name', 'task.name as task_name', 'task.description', 'task.todo', 'task.inprogress', 'task.icebox', 'task.finished','member.id as member_id', 'member.name as member_name')
       .innerJoin('project', 'project.id', 'task.project_id')
+      .innerJoin('member', 'member.id', 'task.member_id')
       .where('task.id', task_id)
   },
   editTask: function(task_id, edit) {
