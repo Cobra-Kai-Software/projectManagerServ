@@ -22,7 +22,7 @@ router.get('/', function(req, res, next) {
 router.get('/:id', function(req, res, next) {
   queries.getTasksByProject(req.params.id)
     .then((tasks) => {
-      res.json(tasks[0])
+      res.json(tasks)
     })
     .catch(function (error){
       res.json({
