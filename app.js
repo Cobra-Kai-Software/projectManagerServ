@@ -11,7 +11,6 @@ const projects = require('./routes/projects');
 const tasks = require('./routes/tasks');
 const login = require('./routes/auth')
 
-
 const app = express();
 
 const port = process.env.PORT || 8080;
