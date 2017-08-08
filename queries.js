@@ -6,7 +6,7 @@ module.exports = {
   },
   getTasksByProject: function(project_id) {
     return knex('task')
-      .select('task.id', 'project.name as project_name', 'task.name as task_name', 'task.description', 'task.todo', 'task.inprogress', 'task.icebox', 'task.finished', 'project.id as project_id')
+      .select('task.id', 'project.name as project_name', 'task.name as task_name', 'task.description', 'task.todo', 'task.inprogress', 'task.icebox', 'task.finished', 'project.id as project_id', 'member.id as member_id')
       .innerJoin('project', 'project.id', 'task.project_id')
       .where('project.id', project_id)
   },
