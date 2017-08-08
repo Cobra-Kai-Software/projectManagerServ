@@ -7,7 +7,7 @@ exports.up = (knex, Promise) => {
     table.boolean('inprogress').defaultTo(false);
     table.boolean('finished').defaultTo(false);
     table.boolean('icebox').defaultTo(false);
-    table.integer('member_id').references('member.id').unsigned();
+    table.integer('member_id').references('member.id').unsigned().onDelete('cascade');
     table.integer('project_id').references('project.id').unsigned().onDelete('cascade').notNullable();
   });
 };
