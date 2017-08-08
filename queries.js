@@ -23,15 +23,7 @@ module.exports = {
   addProject: function(body) {
     return knex('project').insert(body).returning('*')
   },
-  getTasksByMember: function() {
 
-  },
-  getMeberProjects: function() {
-
-  },
-  getMemberByTask: function() {
-
-  },
   getTasks: function() {
     return knex("*").from("task")
   },
