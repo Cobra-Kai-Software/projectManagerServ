@@ -1,11 +1,42 @@
-# Project Manager
-Server and Database for Project Manager app
+![Image](https://github.com/bestcodyever/projectManagerCli/blob/master/pictures/OPM%20Screen%20Shot.png)
 
-#### Objectives
-Manage projects and collaborate with team members to ensure optimum efficiency and less wasted man-hours by reducing team members' redundant work.
+# Odin Project Manager
+A project manager to tackle all your project planning from
+- Create A user login
+- View current projects
+- Show projects currently in progress
+- Move project to icebox or done categories
+- Select a project to work on
+- Delete unwanted items and mistakes
 
-### Getting Started
-Create some projects!
+#### Purpose
+Why use Odin Project Manager?
 
-## Project Access Security
-Ensures only your authorized team members can access you Projects
+Manage projects and collaborate with team members to ensure optimum efficiency and less wasted man-hours by helping eliminate team members' redundant work and ensuring everyone stays on task.
+
+### API
+
+[Heroku Link](https://still-bayou-84038.herokuapp.com/)
+
+### Technologies
+
+This app was built using
+
+Node.js
+expressjs
+knex.js
+bcrypt
+JSON Web Token
+PostgreSQL
+
+### Installation
+
+```
+$ npm install
+```
+ Will install all dependencies.  
+```
+$ mv env-example .env
+```
+This will make a sample .env file.
+The values will need to be changed.
